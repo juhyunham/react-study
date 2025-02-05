@@ -8,8 +8,25 @@
 	justify-content: space-between;
 	align-items: center;
 	box-sizing: border-box;
+	top: 0;
 }
 
 .nav_logo {
 	height: 20px;
+}
+
+.nav_avatar {
+	& > svg {
+		fill: #19191a;
+	}
+}
+
+.nav_black {
+	background-color: #19191a;
+
+	& .nav_avatar {
+		& > svg {
+			fill: #fff;
+		}
+	}
 }
