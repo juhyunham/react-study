@@ -45,6 +45,7 @@ height: 448px;
 }
 
 .banner_title {
+	white-space: nowrap;
 	font-size: 3rem;
 	font-weight: 800;
 	padding-bottom: 0.5rem;
