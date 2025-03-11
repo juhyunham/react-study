@@ -3,6 +3,7 @@ import axios from '../api/axios'
 import requests from '../api/request'
 import styled from 'styled-components';
 import "./Banner.css"
+import { PlayCircleIcon , ExclamationCircleIcon } from '@heroicons/react/24/solid'
 
 function Banner() {
 	const [movie, setMovie] = useState([]);
@@ -50,8 +51,22 @@ function Banner() {
 						<button 
 							className="banner_button play"
 							onClick={() => setIsClicked(!isClicked)}
-						>Play</button>
-						<button className="banner_button info">More Information</button>
+						>
+							<PlayCircleIcon 
+								width="20"
+								height="20"
+								style={{marginRight: "6px", flex: 1}}
+							/>
+							<span style={{ flex: 1}}>Play</span>
+						</button>
+						<button className="banner_button info">
+							<ExclamationCircleIcon 
+								width="20"
+								height="20"
+								style={{marginRight: "6px", flex: 1}}
+							/>
+							<span style={{ flex: 1}}>More Information</span>
+						</button>
 					</div>
 				</div>
 
