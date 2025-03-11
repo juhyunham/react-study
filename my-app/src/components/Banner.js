@@ -68,7 +68,7 @@ function Banner() {
 							<PlayCircleIcon 
 								width="20"
 								height="20"
-								style={{marginRight: "6px", flex: 1}}
+								style={{marginRight: "6px"}}
 							/>
 							<span style={{ flex: 1}}>Play</span>
 						</button>
@@ -76,7 +76,7 @@ function Banner() {
 							<ExclamationCircleIcon 
 								width="20"
 								height="20"
-								style={{marginRight: "6px", flex: 1}}
+								style={{marginRight: "6px"}}
 							/>
 							<span style={{ flex: 1}}>More Information</span>
 						</button>
