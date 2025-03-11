@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import axios from '../api/axios'
-import requests from '../api/request'
+import React, { useState, useEffect } from 'react';
+import { useSearchParams, useNavigate } from "react-router-dom";
+import axios from '../api/axios';
+import requests from '../api/request';
 import styled from 'styled-components';
 import "./Banner.css"
 import { PlayCircleIcon , ExclamationCircleIcon } from '@heroicons/react/24/solid'
 
 function Banner() {
 	const [movie, setMovie] = useState([]);
-	const [isClicked, setIsClicked] = useState(false);
+	const [searchParams, setSearchParams] = useSearchParams();
 
 	useEffect(() => {
 		fetchData();
-	}, [])
+	}, [searchParams])
+
+	console.log(`searchParams`,searchParams)
+
+	const isVideoPlaying = searchParams.get("video") === "true";
 
 	const fetchData = async () => {
 		// 현재 상영중인 영화 정보를 가져오기 (여러 영화)
@@ -34,7 +39,15 @@ function Banner() {
 		return str?.length > n ? str.substr(0, n-1) + "..." : str;
 	}
 
-	if (!isClicked) {
+	console.log(1, movie)
+
+	const playVideo = () => {
+		console.log(`video`)
+
+		setSearchParams({ video: "true" });
+	}
+
+	if (!isVideoPlaying) {
 		return (
 			<header className="banner" 
 				style={{
@@ -50,7 +63,7 @@ function Banner() {
 					<div className="banner_buttons">
 						<button 
 							className="banner_button play"
-							onClick={() => setIsClicked(!isClicked)}
+							onClick={playVideo}
 						>
 							<PlayCircleIcon 
 								width="20"
@@ -75,16 +88,22 @@ function Banner() {
 			</header>
 		)
 	} else {
+		const videoKey = movie.videos.results.length > 0 ? movie.videos.results[0].key : null;
+		console.log(2, movie.videos.results)
+
 		return (
 			<Container>
 				<HomeContainer>
-					<Iframe
+					{
+						videoKey ? <Iframe
 						src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?autoplay=1&mute=1&controls=0&loop=1&playlist=${movie.videos.results[0].key}`}
 						width="640"
 						height="360"
 						frameBorder="0"
 						allow="autoplay; fullscreen"
-					></Iframe>
+						></Iframe> : 
+						<p>비디오가 없습니다</p>
+					}
 				</HomeContainer>
 			</Container>
 		)
