@@ -8,7 +8,9 @@ h2 {
 }
 
 .slider {
+	max-width: 1600px;
 	position: relative;
+	margin: 0 auto;
 }
 
 .arrowLeft {
@@ -54,8 +56,6 @@ h2 {
 
 .slideList {
 	display: flex;
-	overflow-y: hidden;
-	overflow-x: scroll;
 	scroll-behavior: smooth;
 	padding: 0;
 	margin: 0;
@@ -66,21 +66,45 @@ h2 {
 	display: none;
 }
 
+.swiper-wrapper {
+	display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
 .slideItem {
+	position: relative;
 	object-fit: contain;
 	width: 100%;
 	margin-right: 10px;
-	transition: transform 450ms;
 	border-radius: 4px;
+	flex-shrink: 0;
+	overflow: hidden;
 
-	img {
+	& .poster {
 		width: 100%;
-		height: 100%;
+		height: 300px;
 	}
-}
 
-.slideItem:hover {
-	transform: scale(1.08);
+	& .movieTitle {
+		color: #f1f1f3;
+	}
+
+	&:hover {
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.5);
+		}
+	}
 }
 
 .posterLarge {
@@ -95,7 +119,7 @@ h2 {
 .arrowLeft {
 	position: absolute;
 	top: 0;
-	left: 20px;
+	left: 0;
 	height: 100%;
 	width: 32px;
 	background: rgba(0, 0, 0, 0.2);
