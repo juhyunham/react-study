@@ -3,6 +3,7 @@ import Nav from './components/Nav';
 import Banner from './components/Banner';
 import Row from './components/Row';
 import './App.css';
+import Footer from './components/Footer';
 import requests from './api/request';
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
               fetchUrl={requests.fetchDocumentarues}
             /> */}
 
+            <Footer />
           </Router>
       </div>
   );
