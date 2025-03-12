@@ -93,7 +93,7 @@ h2 {
 		height: 300px;
 		transition: transform 0.3s;
 	}
-
+ 
 	& .movieTitle {
 		color: #f1f1f3;
 	}

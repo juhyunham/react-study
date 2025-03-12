@@ -14,8 +14,6 @@ function Banner() {
 		fetchData();
 	}, [searchParams])
 
-	console.log(`searchParams`,searchParams)
-
 	const isVideoPlaying = searchParams.get("video") === "true";
 
 	const fetchData = async () => {
@@ -23,10 +21,10 @@ function Banner() {
 		const request = await axios.get(requests.fetchNowPlaying);
 
 		// 여러 영화 중 영화 하나의 ID를 가져오기
-		const moveiID = request.data.results[Math.floor(Math.random() * request.data.results.length)].id; 
+		const movieID = request.data.results[Math.floor(Math.random() * request.data.results.length)].id; 
 
 		// 특정 영화의 더 상세한 정보를 가져오기
-		const {data: movieDetail} = await axios.get(`movie/${moveiID}`, {
+		const {data: movieDetail} = await axios.get(`movie/${movieID}`, {
 			params: {
 				append_to_response: "videos",
 			},
@@ -38,8 +36,6 @@ function Banner() {
 	const truncate = (str, n) => {
 		return str?.length > n ? str.substr(0, n-1) + "..." : str;
 	}
-
-	console.log(1, movie)
 
 	const playVideo = () => {
 		console.log(`video`)
@@ -89,7 +85,6 @@ function Banner() {
 		)
 	} else {
 		const videoKey = movie.videos.results.length > 0 ? movie.videos.results[0].key : null;
-		console.log(2, movie.videos.results)
 
 		return (
 			<Container>
