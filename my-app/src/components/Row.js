@@ -53,11 +53,13 @@ export default function Row({title, id, fetchUrl, isLargeRow}) {
 								className="slideItem"
 								style={{ width: "150px" }}
 							>
-								<img
-									className={`poster "${isLargeRow && 'posterLarge'}"`}
-									src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-									alt={movie.name}
-								/>
+								<div className="posterWrap">
+									<img
+										className={`poster "${isLargeRow && 'posterLarge'}"`}
+										src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+										alt={movie.name}
+									/>
+								</div>
 								<div>
 									<h4 className="movieTitle">{movie.name}</h4>
 								</div>

@@ -28,6 +28,32 @@ function App() {
               id="TR"
               fetchUrl={requests.fetchTopRated}
             />
+            <Row 
+              title="Action Movies" 
+              id="AM"
+              fetchUrl={requests.fetchActionMoives}
+            />
+            {/* 
+            <Row 
+              title="Comedy Movies" 
+              id="AM"
+              fetchUrl={requests.fetchComedyMovies}
+            />
+            <Row 
+              title="Horror Movies" 
+              id="AM"
+              fetchUrl={requests.fetchHorrorMovies}
+            />
+            <Row 
+              title="Romance Movies" 
+              id="AM"
+              fetchUrl={requests.fetchRomanceMovies}
+            />
+            <Row 
+              title="Document Movies" 
+              id="AM"
+              fetchUrl={requests.fetchDocumentarues}
+            /> */}
 
           </Router>
       </div>
