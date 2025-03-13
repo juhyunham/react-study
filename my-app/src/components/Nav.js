@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import "./Nav.css"
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link, useNavigate } from 'react-router-dom';
 import { SmileOutlined } from "@ant-design/icons";
 
 function Nav() {
 	const [show, setShow] = useState(false);
 	const [searchValue, setSearchValue] = useState("");
+	const navigate = useNavigate()
 
 	const handleChange = (event) => {
 		setSearchValue(event.target.value)
+		navigate(`/search?q=${event.target.value}`)
 	}
 
 	useEffect(() => {
