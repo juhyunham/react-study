@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "./Nav.css"
-import { BrowserRouter as Router, Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SmileOutlined } from "@ant-design/icons";
 
 function Nav() {
