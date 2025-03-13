@@ -5,6 +5,11 @@ import { SmileOutlined } from "@ant-design/icons";
 
 function Nav() {
 	const [show, setShow] = useState(false);
+	const [searchValue, setSearchValue] = useState("");
+
+	const handleChange = (event) => {
+		setSearchValue(event.target.value)
+	}
 
 	useEffect(() => {
 		window.addEventListener(`scroll`, () => {
@@ -25,7 +30,15 @@ function Nav() {
 					alt="Netflix logo"
 					className="nav_logo"
 				/>
-			</Link> 
+			</Link>
+
+			<input 
+				value={searchValue}
+				onChange={handleChange}
+				type="text"
+				className="nav_input"
+			/>
+
 			<Link to="/myprofile">
 				<SmileOutlined className="nav_avatar" />
 			</Link>
